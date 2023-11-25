@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-4 lg:flex justify-center">
+    <form method="POST" action="{% url 'create_employee' %}" class="p-6 font-semibold lg:w-1/2 text-base">
+        {% csrf_token %}
+        <div class="my-1 flex justify-between text-2xl font-bold">
+            <p class="text-2xl font-bold underline">Add Employee</p>
+            <a class="bg-red-600 text-white rounded-md px-2 hover:bg-red-700" href="/">X</a>
+        </div>
+        <div class="flex flex-col mt-3">
+            <label for="name">Name:</label>
+            <input class="my-1 rounded-md" type="text" name="name" id="name" required />
+            <div class="mt-5 border-2 border-b border-gray-200"></div>
+        </div>
+        <div class="flex flex-col mt-2">
+            <label for="department">Department:</label>
+            <input class="my-1 rounded-md" type="text" name="department" id="department" required />
+            <div class="mt-5 border-2 border-b border-gray-200"></div>
+        </div>
+        <div class="flex flex-col mt-2">
+            <label for="position">Position:</label>
+            <input class="my-1 rounded-md" type="text" name="position" id="position" required />
+            <div class="mt-5 border-2 border-b border-gray-200"></div>
+        </div>
+        <div class="flex flex-col mt-2">
+            <label for="salary">Salary:</label>
+            <input class="my-1 rounded-md" type="number" name="salary" id="salary" required />
+        </div>
+        <div class="flex justify-center my-3">
+            <button class="w-24 bg-green-400 text-white rounded-md p-2 text-2xl hover:bg-green-500" type="submit">
+                Save
+            </button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

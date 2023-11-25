@@ -1,0 +1,27 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% tailwind_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmployeeTracker</title>
+    <script src="https://kit.fontawesome.com/b621fdb088.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="w-full flex bg-blue-300 p-3 items-center text-white">
+    <div class="w-1/3 md:w-4/5 text-2xl font-bold">
+        <p class="hidden md:block">Employee-Tracker</p>
+        <p class="block md:hidden">E.T</p>
+    </div>
+    <div class="w-2/3 md:w-1/5 flex justify-end text-2xl font-semibold">
+        <a href="{% url 'create_employee' %}" class="cursor underline">Add</a>
+    </div>
+</nav>
+     {% block nav %}{% endblock  %} 
+     {% block content %} {% endblock %} 
+     <script src="{% static 'app.js' %}"></script>
+</body>
+</html>

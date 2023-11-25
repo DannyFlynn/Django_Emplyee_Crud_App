@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mt-4 lg:flex justify-center">
+    <form method="POST" action="{% url 'update_employee' employee.id %}"
+     class="p-6 font-semibold lg:w-1/2 text-base">
+        {% csrf_token %}
+        <div class="my-1 flex justify-between text-2xl font-bold">
+            <div class="flex flex-col my-1">
+                <p class="mt-1">{{employee.name}}</p>
+                <p class="mt-1">{{employee.start_date}}</p>
+            </div>
+            <div class="my-1 flex justify-center items-center">
+                <a class="bg-red-600 text-white rounded-md px-2 hover:bg-red-700" href="/">X</a>
+            </div>
+        </div>
+        <div class="flex flex-col mt-3">
+            <label for="name" >Name:</label>
+            <input name="name" class="my-1 rounded-md" type="text" placeholder="{{employee.name}}" />
+            <div class="mt-5 border-2 border-b border-gray-200"></div>
+        </div>
+        <div class="flex flex-col mt-2">
+            <label for="department">Department:</label>
+            <input name="department" class="my-1 rounded-md" type="text" placeholder="{{employee.department}}" />
+            <div class="mt-5 border-2 border-b border-gray-200"></div>
+        </div>
+        <div class="flex flex-col mt-2">
+            <label for="position">Position:</label>
+            <input name="position" class="my-1 rounded-md" type="text" placeholder="{{employee.position}}" />
+            <div class="mt-5 border-2 border-b border-gray-200"></div>
+        </div>
+        <div class="flex flex-col mt-2">
+            <label for="salary">Salary:</label>
+            <input name="salary" class="my-1 rounded-md" type="number" placeholder="{{employee.salary}}" />
+            <div class="mt-5 border-2 border-b border-gray-200"></div>
+        </div>
+        <div class="flex flex-col mt-2">
+            <label for="sick_days">Sick-Days:</label>
+            <input name="sick_days" class="my-1 rounded-md" type="text" placeholder="{{employee.sick_days}}" />
+        </div>
+        <div class="flex justify-center my-3">
+            <button class="w-24 bg-green-400 text-white rounded-md p-2 text-2xl hover:bg-green-500">
+                Save
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
